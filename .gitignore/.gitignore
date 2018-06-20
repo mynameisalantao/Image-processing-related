@@ -1,0 +1,44 @@
+from PIL import Image  
+import numpy as np  
+import scipy  
+  
+
+# 讀取圖片
+im_color = Image.open("C:\python36/101.jpg")  
+  
+# show()函數顯示圖片 
+#im_color.show()
+
+import matplotlib.pyplot as plt
+
+#彩圖
+plt.subplot(1,3,1)
+plt.plot([0,1],[0,1])
+plt.imshow(im_color)
+
+
+#將圖片轉換成灰階圖
+im_gray=Image.open("C:\python36/101.jpg").convert('L')
+
+#貼出圖
+plt.subplot(1,3,2)
+plt.plot([0,1],[0,2])
+plt.imshow(im_gray)
+
+
+
+#並且將灰階圖以矩陣形式指定給img
+img=np.array(im_gray)
+rows,cols=img.shape
+for i in range(rows):
+    for j in range(cols):
+        if (img[i,j]<=100):
+            img[i,j]=0
+        else:
+            img[i,j]=1
+
+#貼出二值化以後的圖
+plt.subplot(1,3,3)
+plt.plot([0,1],[0,3])
+plt.imshow(img,cmap='gray')
+plt.show()
