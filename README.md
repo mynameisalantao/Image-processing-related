@@ -117,7 +117,33 @@ after_adjust= imadjust(gray_mikasa);</pre></code>
 
 可以與未經過Histogram Adjustment的灰階圖進行比較
 ![Imgur](https://i.imgur.com/znImRqV.png)
+重點更為凸顯
 ![Imgur](https://i.imgur.com/EmsuswZ.png)
+直方圖中每個灰階更分散<br/>
+
+接著為局部Histogram Adjustment比較
+<pre><code>mikasa=imread('mikasa.jpg');
+gray_mikasa=rgb2gray(mikasa);
+histogram1=imhist(gray_mikasa);
+subplot(1,2,1);
+bar(histogram)
+xlim([0 255])
+xlabel('pixel value')
+ylabel('Number')
+hold on;
+after_adjust=imadjust(gray_mikasa,[30 80]/255,[]);
+histogram2=imhist(gray_mikasa);
+subplot(1,2,2);
+bar(histogram2)
+xlim([0 255])
+xlabel('pixel value')
+ylabel('Number')
+figure
+imshow(after_adjust);</pre></code>
+![Imgur](https://i.imgur.com/UHieRo4.png)
+原圖看不太出來差異<br/>
+將其在[30 80]範圍內放大，可以發現右圖更為均勻
+
 
 
 
