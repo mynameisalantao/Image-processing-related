@@ -144,8 +144,24 @@ imshow(after_adjust);</pre></code>
 原圖看不太出來差異<br/>
 將其在[30 80]範圍內放大，可以發現右圖更為均勻
 
-
-
+6.Histogram Equalization
+<pre><code>mikasa=imread('mikasa.jpg');
+gray_mikasa=rgb2gray(mikasa);
+histogram1=imhist(gray_mikasa);
+subplot(1,2,1);
+bar(histogram)
+xlim([0 255])
+xlabel('pixel value')
+ylabel('Number')
+hold on;
+after_equal = histeq(gray_mikasa);
+histogram2=imhist(after_equal);
+subplot(1,2,2);
+bar(histogram2)
+xlim([0 255])
+xlabel('pixel value')
+ylabel('Number')</pre></code>
+![Imgur](https://i.imgur.com/v2EOTPD.png)
 
 
 
