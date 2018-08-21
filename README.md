@@ -116,8 +116,8 @@ gray_mikasa=rgb2gray(mikasa);
 after_adjust= imadjust(gray_mikasa);</pre></code>
 
 可以與未經過Histogram Adjustment的灰階圖進行比較
-
-
+![Imgur](https://i.imgur.com/znImRqV.png)
+![Imgur](https://i.imgur.com/EmsuswZ.png)
 
 
 
