@@ -64,3 +64,63 @@ plt.plot([0,1],[0,3])
 plt.imshow(img,cmap='gray')</pre></code>
 最後並排顯示3張圖
 <pre><code>plt.show()</pre></code>
+
+使用Matlab 用於圖像處理 20180821
+================================
+
+
+1.將圖片載入，並顯現
+<pre><code>mikasa=imread('mikasa.jpg');
+figure
+imshow(mikasa);</pre></code>
+
+
+2.轉灰階，並顯現
+<pre><code>mikasa=imread('mikasa.jpg');
+gray_mikasa=rgb2gray(mikasa);
+figure
+imshow(gray_mikasa);</pre></code>
+
+
+3.顯示灰階的直方圖 <br/>
+imhist(I) calculates the histogram for the intensity image I and displays a plot of the histogram. <br/>
+The number of bins in the histogram is determined by the image type.
+
+<pre><code>mikasa=imread('mikasa.jpg');
+gray_mikasa=rgb2gray(mikasa);
+histogram=imhist(gray_mikasa);
+figure
+bar(histogram)
+xlim([0 255])
+xlabel('pixel value')
+ylabel('Number')</pre></code>
+
+
+4.依據global閥值來進行二值化
+<pre><code>mikasa=imread('mikasa.jpg');
+gray_mikasa=rgb2gray(mikasa);
+threshold = graythresh(gray_mikasa);
+%得到的threshold為0.6157
+binary = imbinarize(gray_mikasa, threshold);
+figure
+imshow(binary)</pre></code>
+
+
+5.Histogram Adjustment <br/>
+J = imadjust(I) maps the intensity values in grayscale image I to new values in J.  <br/>
+By default, imadjust saturates the bottom 1% and the top 1% of all pixel values.  <br/>
+This operation increases the contrast of the output image J.
+
+<pre><code>mikasa=imread('mikasa.jpg');
+gray_mikasa=rgb2gray(mikasa);
+after_adjust= imadjust(gray_mikasa);</pre></code>
+
+可以與未經過Histogram Adjustment的灰階圖進行比較
+
+
+
+
+
+
+
+
