@@ -162,7 +162,8 @@ xlim([0 255])
 xlabel('pixel value')
 ylabel('Number')</pre></code>
 ![Imgur](https://i.imgur.com/v2EOTPD.png)
-
+於是乎產生了充滿怨念的米卡莎
+![Imgur](https://i.imgur.com/MpcQ15g.png)
 
 
 
